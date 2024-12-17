@@ -1,0 +1,106 @@
+export const COLORS = {
+    PRIMARY: "#EEAB1E",
+    PRIMARY_50: "#FFF7E6",
+    PRIMARY_TEXT_ICON: "#111111",
+    SECONDARY_TEXT_ICON: "#777E90",
+    ICON: "#A9B1C3",
+    DISABLE_TEXT: "#808080",
+    SECONDARY: "#2ecc71",
+    PLACEHOLDER_TEXT: "#A9A9A9",
+    DIVIDER: "#E9ECF1",
+    STROKE: "#EBEAED",
+    DISABLE_BACKGROUND: "#F4F4F4",
+    GRAY_BACKGROUND: "#FBFBFB",
+    WHITE_BACKGROUND: "#FFFFFF",
+    DANGER: "#DF4C4C",
+    SUCCESS: "#47C56B",
+    SUCCESS_50: "#D9F3E1",
+    SUBTEXT: "#777E90",
+};
+
+export const FONTS = {
+    HEADING_1: {
+        fontFamily: "Manrope-Bold",
+        fontSize: 36,
+        lineHeight: 50,
+        letterSpacing: -0.2,
+    },
+    HEADING_2: {
+        fontFamily: "Manrope-Bold",
+        fontSize: 32,
+        lineHeight: 46,
+        letterSpacing: -0.2,
+    },
+    HEADING_3: {
+        fontFamily: "Manrope-Bold",
+        fontSize: 28,
+        lineHeight: 42,
+        letterSpacing: -0.2,
+    },
+    HEADING_4: {
+        fontFamily: "Manrope-Bold",
+        fontSize: 24,
+        lineHeight: 40,
+        letterSpacing: -0.2,
+    },
+    HEADING_5: {
+        fontFamily: "Manrope-Bold",
+        fontSize: 20,
+        lineHeight: 30,
+        letterSpacing: -0.2,
+    },
+    SUBTITLE: {
+        fontFamily: "Manrope-Bold",
+        fontSize: 18,
+        lineHeight: 24,
+        letterSpacing: -0.2,
+    },
+    BODY_2_REGULAR: {
+        fontFamily: "Manrope-Regular",
+        fontSize: 16,
+        lineHeight: 22,
+        letterSpacing: -0.2,
+    },
+    BODY_2_SEMIBOLD: {
+        fontFamily: "Manrope-SemiBold",
+        fontSize: 16,
+        lineHeight: 22,
+        letterSpacing: -0.2,
+    },
+    BODY_1_REGULAR: {
+        fontFamily: "Manrope-Regular",
+        fontSize: 14,
+        lineHeight: 22,
+        letterSpacing: -0.2,
+    },
+    BODY_1_SEMIBOLD: {
+        fontFamily: "Manrope-SemiBold",
+        fontSize: 14,
+        lineHeight: 22,
+        letterSpacing: -0.2,
+    },
+    HELPTEXT: {
+        fontFamily: "Manrope-Regular",
+        fontSize: 12,
+        lineHeight: 18,
+        letterSpacing: -0.2,
+    },
+    CAPTION_REGULAR: {
+        fontFamily: "Manrope-Regular",
+        fontSize: 10,
+        lineHeight: 18,
+        letterSpacing: -0.2,
+    },
+    CAPTION_SEMIBOLD: {
+        fontFamily: "Manrope-Regular",
+        fontSize: 10,
+        lineHeight: 16,
+        letterSpacing: -0.2,
+    },
+    COUNT: {
+        fontFamily: "Manrope-SemiBold",
+        fontSize: 8,
+        lineHeight: 14,
+        letterSpacing: -0.2,
+    }
+};
