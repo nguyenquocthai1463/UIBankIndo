@@ -1,10 +1,18 @@
 // Import các thư viện cần thiết
 import React, { useState } from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, GestureResponderEvent, } from 'react-native';
+import { Text, View, } from 'react-native';
 import ProfileScreen from './shared/components/profile-screen';
-import { Provider as PaperProvider } from 'react-native-paper';
+import DashboardScreen from './shared/components/dashboard-screen';
+import CustomerDetailsScreen from './shared/components/customer-details-screen';
 import { useFonts } from 'expo-font';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   // Cài đặt font chữ
@@ -18,7 +26,7 @@ export default function App() {
     'Manrope-SemiBold': require('./public/assets/fonts/Manrope-SemiBold.ttf'),
   });
 
-  
+
   if (!fontsLoaded) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -29,8 +37,18 @@ export default function App() {
 
 
   return (
-    <PaperProvider>
-      <ProfileScreen />
-    </PaperProvider>
-  )
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="CustomerDetailsScreen"
+        screenOptions={{
+          // animation: 'none', // Tắt hiệu ứng chuyển màn hình
+        }}
+      >
+        <Stack.Screen name="CustomerDetailsScreen" component={CustomerDetailsScreen} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="DashboardScreen" component={DashboardScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerShown: false }} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+
 }
+

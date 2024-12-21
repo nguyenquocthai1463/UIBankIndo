@@ -1,16 +1,24 @@
-import React from "react";
 import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
 import { COLORS } from "../constants/style";
+import { useNavigation } from '@react-navigation/native';
 
-interface HeaderProps {
-  onBackPress: () => void;
-}
+const Header = () => {
+  const navigation = useNavigation();
 
-const Header: React.FC<HeaderProps> = ({ onBackPress }) => {
+  const handleBackPress = () => {
+    navigation.goBack(); 
+  };
+
   return (
     <View style={styles.header}>
-      <TouchableOpacity style={styles.backButton} onPress={onBackPress}>
-        <Image style={styles.Image} source={require('../../public/assets/images/icon-back.png')} />
+      {/* Ảnh bên trái */}
+      <TouchableOpacity style={styles.leftButton} onPress={handleBackPress}>
+        <Image style={styles.ImageBack} source={require('../../public/assets/images/icon-back.png')} />
+      </TouchableOpacity>
+
+      {/* Ảnh bên phải */}
+      <TouchableOpacity style={styles.rightButton} onPress={handleBackPress}>
+        <Image style={styles.ImageHome} source={require('../../public/assets/images/home-icon.png')} />
       </TouchableOpacity>
     </View>
   );
@@ -20,16 +28,31 @@ const styles = StyleSheet.create({
   header: {
     height: 60,
     backgroundColor: COLORS.PRIMARY,
-    position: 'relative',
+    flexDirection: 'row', // Đặt layout ngang
+    justifyContent: 'space-between', // Hai đầu
+    alignItems: 'center', // Căn giữa theo chiều dọc
+    paddingHorizontal: 16, // Thêm khoảng cách hai bên
+    
   },
-  Image: {
-    width: 18.5, 
-    height: 15, 
+  ImageBack: {
+    width: 16.5,
+    height: 13.55,
   },
-  backButton: {
-    position: 'absolute',
-    top: 18, 
-    left: 18, 
+  ImageHome: {
+    width: 16,
+    height: 16,
+  },
+  leftButton: {
+    width: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  rightButton: {
+    width: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

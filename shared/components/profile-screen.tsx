@@ -1,31 +1,48 @@
 import React from "react";
-import { View, StyleSheet, ScrollView, TouchableOpacity, Image } from "react-native";
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity, StatusBar } from "react-native";
 import { Avatar, Text, Button, Divider, List } from "react-native-paper";
-import { StatusBar } from 'react-native'; // Import StatusBar
 import { FONTS, COLORS } from "../constants/style";
 import Header from "./header";
+import { useNavigation } from "@react-navigation/native";
 
-const ProfileScreen: React.FC = () => {
+export default function ProfileScreen ()  {
+  const navigation = useNavigation();
+
+  const handleLocalSync = () => {
+
+  };
+
+
+  const handleServerSync = () => {
+
+  };
+
   return (
     <>
-      {/* Set the StatusBar color to match the header */}
-      <StatusBar barStyle="dark-content" backgroundColor ={COLORS.PRIMARY}  />
+      
+      <StatusBar barStyle="dark-content" backgroundColor={COLORS.PRIMARY} />
+
 
       {/* Header with Back Button */}
-      <Header onBackPress={() => console.log("Back button pressed")} />
+      <Header />
 
       <ScrollView style={styles.container}>
         <Text style={styles.title}>Profile</Text>
 
         {/* Profile Section */}
         <View style={styles.profileContainer}>
-          <Avatar.Image 
-            size={80} 
-            source={require('../../public/assets/images/user-avatar.png')} 
-            style={styles.avatar}
-          />
+          <View style={styles.frameAvatar}>
+            <Image
+              source={require('../../public/assets/images/user-avatar.png')} // Đường dẫn tới ảnh
+              style={styles.customAvatar}
+            />
+          </View>
+
           <Text style={styles.username}>user001</Text>
-          <Text style={styles.status}>● Active</Text>
+          <View style={styles.statusContainer}>
+            <Text style={[styles.status, { color: COLORS.SUCCESS }]}>●</Text>
+            <Text style={styles.status}> Active</Text>
+          </View>
         </View>
 
         {/* Information Section */}
@@ -55,22 +72,57 @@ const ProfileScreen: React.FC = () => {
           </View>
         </View>
 
+
         {/* Action Buttons */}
         <View style={styles.actionContainer}>
-          <TouchableOpacity onPress={() => console.log("Sync data to local store")}>
-            <List.Item
-              title="Sync data to local store"
-              left={(props) => <List.Icon {...props} icon="download" />}
-            />
-          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLocalSync}>
+            <View style={styles.listItemContainer}>
+              <List.Item
+                title="Sync data to local store"
+                titleStyle={styles.titleActionButtons}
+                left={() => (
+                  <Image
+                    source={require("../../public/assets/images/reload-data.png")}
+                    style={styles.icon}
+                  />
+                )}
+                right={() => (
+                  <Image
+                    source={require("../../public/assets/images/next-icon.png")}
+                    style={styles.rightIcon}
+                  />
+                )}
 
-          <TouchableOpacity onPress={() => console.log("Sync data to server")}>
-            <List.Item
-              title="Sync data to server"
-              left={(props) => <List.Icon {...props} icon="upload" />}
-            />
+              />
+
+            </View>
+          </TouchableOpacity>
+          <View style={styles.separator} />
+          <TouchableOpacity onPress={handleServerSync}>
+            <View style={styles.listItemContainer}>
+              <List.Item
+                title="Sync data to server"
+                titleStyle={styles.titleActionButtons}
+                left={() => (
+                  <Image
+                    source={require("../../public/assets/images/sync-data.png")}
+                    style={styles.icon}
+                  />
+                )}
+                right={() => (
+                  <Image
+                    source={require("../../public/assets/images/next-icon.png")}
+                    style={styles.rightIcon}
+                  />
+                )}
+
+              />
+            </View>
           </TouchableOpacity>
         </View>
+
+
+
 
         {/* Sign Out Button */}
         <Button
@@ -78,7 +130,7 @@ const ProfileScreen: React.FC = () => {
           mode="contained"
           onPress={() => console.log("Sign Out")}
           style={styles.signOutButton}
-          labelStyle={{ ...FONTS.BODY_2_SEMIBOLD, color: COLORS.DANGER }}
+          labelStyle={{ ...FONTS.BODY_2_SEMIBOLD, color: COLORS.DANGER, }}
           color="#EBEAED"
         >
           Sign out
@@ -86,35 +138,51 @@ const ProfileScreen: React.FC = () => {
       </ScrollView>
     </>
   );
+
+
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    backgroundColor: "#FBFBFB",
+    backgroundColor: COLORS.GRAY_BACKGROUND,
   },
   title: {
-    marginTop: 40,
     ...FONTS.HEADING_3,
+    marginTop: 40,
   },
   profileContainer: {
     alignItems: "center",
     marginTop: 20,
     marginBottom: 20,
   },
-  avatar: {
+  customAvatar: {
+    width: 80,
+    height: 80,
+  },
+  statusContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  status: {
+    ...FONTS.BODY_1_REGULAR,
+    color: COLORS.SUBTEXT,
+    marginTop: 5,
+  },
+
+  frameAvatar: {
+    width: 80,
+    height: 80,
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 40,
     backgroundColor: COLORS.DISABLE_BACKGROUND,
   },
   username: {
-    marginTop: 10,
     ...FONTS.SUBTITLE,
-  },
-  status: {
-    marginTop: 5,
-    ...FONTS.BODY_1_REGULAR,
-    color: COLORS.SUBTEXT,
+    marginTop: 10,
   },
   infoContainer: {
     backgroundColor: COLORS.WHITE_BACKGROUND,
@@ -128,11 +196,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginVertical: 10,
+    marginHorizontal: 10,
   },
   label: {
     ...FONTS.BODY_1_REGULAR,
     color: COLORS.SECONDARY_TEXT_ICON,
     maxWidth: 100,
+    flexShrink: 1,
   },
   value: {
     ...FONTS.BODY_1_SEMIBOLD,
@@ -146,7 +216,36 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     height: 120,
     elevation: 1,
+    justifyContent: "center",
   },
+  listItemContainer: {
+    flexDirection: 'row', // Đảm bảo các phần tử nằm trên một hàng
+    alignItems: 'center',
+
+    width: '100%',
+    justifyContent: "center",
+  },
+  icon: {
+    marginStart: 16,
+    width: 24,
+    height: 24,
+  },
+  rightIcon: {
+    marginLeft: 'auto',  // Đảm bảo icon luôn ở bên phải
+    width: 16,
+    height: 16,
+    alignSelf: 'center',  // Căn giữa icon theo chiều dọc
+  },
+  separator: {
+    height: 1,
+    backgroundColor: COLORS.DIVIDER,
+    marginStart: 50,
+    marginEnd: 20
+  },
+  titleActionButtons: {
+    ...FONTS.BODY_1_SEMIBOLD,
+  }
+  ,
   signOutButton: {
     marginVertical: 15,
     borderWidth: 1,
@@ -155,7 +254,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 11,
     paddingHorizontal: 24,
+    marginBottom: 30
   },
+
 });
 
-export default ProfileScreen;
+
