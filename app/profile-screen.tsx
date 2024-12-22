@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StyleSheet, ScrollView, Image, TouchableOpacity, StatusBar } from "react-native";
 import { Avatar, Text, Button, Divider, List } from "react-native-paper";
-import { FONTS, COLORS } from "../constants/style";
-import Header from "./header";
+import { FONTS, COLORS } from "../shared/constants/style";
+import Header from "../shared/components/header";
 import { useNavigation } from "@react-navigation/native";
 
 export default function ProfileScreen ()  {

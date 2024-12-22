@@ -1,9 +1,9 @@
 // Import các thư viện cần thiết
 import React, { useState } from 'react';
 import { Text, View, } from 'react-native';
-import ProfileScreen from './shared/components/profile-screen';
-import DashboardScreen from './shared/components/dashboard-screen';
-import CustomerDetailsScreen from './shared/components/customer-details-screen';
+import ProfileScreen from './app/profile-screen';
+import DashboardScreen from './app/dashboard-screen';
+import CustomerDetailsScreen from './app/customer-details-screen';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";

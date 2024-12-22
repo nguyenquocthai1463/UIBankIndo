@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, Button, Divider, List } from "react-native-paper";
 import { View, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
-import { FONTS, COLORS } from "../constants/style";
+import { FONTS, COLORS } from "../shared/constants/style";
 import DropDownPicker from 'react-native-dropdown-picker';
 
 function DebtAccountScreen({ onHeightChange }: { onHeightChange: any }) {

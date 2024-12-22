@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import PieChart from 'react-native-pie-chart'; // Thêm import cho thư viện react-native-pie-chart
 import { StatusBar } from 'react-native';
-import { FONTS, COLORS } from "../constants/style";
+import { FONTS, COLORS } from "../shared/constants/style";
 
 
 export default function DashboardScreen ({navigation}: {navigation: any}) {

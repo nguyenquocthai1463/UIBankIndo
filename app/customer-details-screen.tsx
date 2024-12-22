@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { FONTS, COLORS } from "../constants/style";
+import { FONTS, COLORS } from "../shared/constants/style";
 import { View, StyleSheet, ScrollView, Image, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { Text } from "react-native-paper";
-import Header from "./header";
+import Header from "../shared/components/header";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import DebtAccountScreen from "./debt-account-screen";
-import CustomNavigationMenu from './custom-navigation-menu';
+import CustomNavigationMenu from '../shared/components/custom-navigation-menu';
 import { Provider } from "react-native-paper";
 import BottomDialogNote from './note-bottom-dialog';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import NotificationSuccessDialog from './notification-success-dialog';
+import NotificationSuccessDialog from '../shared/components/notification-success-dialog';
 
 const Tab = createMaterialTopTabNavigator();
 

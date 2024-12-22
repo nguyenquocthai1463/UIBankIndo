@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Modal, TouchableWithoutFeedback, Keyboard, StatusBar, Animated } from 'react-native';
-import { COLORS, FONTS } from '../constants/style';
+import { COLORS, FONTS } from '../shared/constants/style';
 import { Divider } from 'react-native-paper';
 import { RadioButton } from 'react-native-paper';
-import NotificationSuccessDialog from './notification-success-dialog';
+import NotificationSuccessDialog from '../shared/components/notification-success-dialog';
 
 const BottomDialogNote = ({ visible, setVisible, note, setNote }: { visible: any, setVisible: any, note: any, setNote: any }) => {
     const [modalAnim] = useState(new Animated.Value(0)); // Giá trị bắt đầu từ 0 (ẩn modal)
