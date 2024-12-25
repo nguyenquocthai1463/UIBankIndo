@@ -14,7 +14,7 @@ export default function SignIn({ navigation }) {
   return (
     <View style={styles.container}>
       {/* Logo */}
-      <Image style={styleImage.Image} source={require('../assets/logo.png')} />
+      <Image style={styleImage.Image} source={require('../../assets/logo.png')} />
       {/* Form đăng nhập */}
       <View style={styleFormLogin.container}>
         <View style={{ alignItems: 'center', width: '100%' }}>

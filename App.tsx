@@ -1,10 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import SignIn from "./screens/signIn";
-import LandingPageDashboard from "./screens/landingPageDashboard";
+import SignIn from "./app/screens/signIn";
+import LandingPageDashboard from "./app/screens/landingPageDashboard";
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, GestureResponderEvent, } from 'react-native';
 import { useFonts } from 'expo-font';
+import AccountList from "./app/screens/accountList";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Account List" component={AccountList} options={{ headerShown: false }}/>
         <Stack.Screen name="Sign In" component={SignIn} options={{ headerShown: false }}/>
         <Stack.Screen name="LandingPageDashboard" component={LandingPageDashboard} options={{ headerShown: false }}/>
       </Stack.Navigator>

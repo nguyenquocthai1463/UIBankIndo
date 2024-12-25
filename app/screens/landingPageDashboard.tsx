@@ -18,7 +18,7 @@ export default function LandingPageDashboard({/* notificationCount, navigation *
             onPress={() => { }}
             style={{ width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 22, backgroundColor: '#fff' }}
           >
-            <Image source={require('../assets/user.png')} />
+            <Image source={require('../../assets/user.png')} />
           </TouchableOpacity>
           <Text style={header.title}>Hi, Minh Tran</Text>
         </View>
